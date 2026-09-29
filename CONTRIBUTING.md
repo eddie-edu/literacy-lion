@@ -1,6 +1,6 @@
 # Contributing
 
-This document covers how we work as a team in this repo, branching, commits, and PR review. For what the project is and how to run it, see the [README](./README.md).
+This document covers how we work as a team in this repo — branching, commits, and PR review. For what the project is and how to run it, see the [README](./README.md).
 
 ## Branch strategy
 
