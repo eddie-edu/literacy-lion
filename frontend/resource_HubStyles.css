@@ -1,27 +1,329 @@
-html, body {
+/*remove the default browser spacing and make sizing easier to control*/
+html,
+body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     box-sizing: border-box;
-}
-.banner{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    width: 100%;
-    height: 100px;
-    background-color: #1e407c;
-    color:aliceblue;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    box-sizing: content-box;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #222;
 }
 
-.banner h3{
-    font-size: 15px;
-    font-weight: bold;
+
+/*make sure padding does not mess up width calculations*/
+* {
+    box-sizing: border-box;
+}
+
+
+/*this is the top navigation bar*/
+.navbar {
+    width: 100%;
+    min-height: 80px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1e407c;
+    color: white;
+}
+
+
+/*keep the penn state logo and website name together*/
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+/*make the penn state logo bigger so it does not look tiny next to the title*/
+.penn-state-logo {
+    height: 62px;
+    width: auto;
+    display: block;
+}
+
+
+/*website name inside the navbar*/
+.navbar h2 {
     margin: 0;
-    padding: 0;
-}   
+    font-size: 24px;
+}
+
+
+/*keeps the navigation links together*/
+.nav-links {
+    display: flex;
+    gap: 24px;
+}
+
+
+/*style the navigation links*/
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/*small hover effect so the links feel interactive*/
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+
+/*this is the main section users see first*/
+.hero {
+    width: 100%;
+    padding: 70px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    background-color: white;
+}
+
+
+/*this holds the text on the left side of the hero*/
+.hero-text {
+    flex: 1;
+    max-width: 650px;
+}
+
+
+/*main title*/
+.hero-text h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 48px;
+    line-height: 1.1;
+}
+
+
+/*short description under the title*/
+.hero-text p {
+    margin-bottom: 30px;
+    font-size: 19px;
+    line-height: 1.6;
+}
+
+
+/*keeps the hero buttons next to each other*/
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+
+/*basic button style*/
+.button {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #1e407c;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+
+/*small button hover effect*/
+.button:hover {
+    opacity: 0.9;
+}
+
+
+/*this controls the image area on the right side of the hero*/
+.hero-image {
+    flex: 1;
+    max-width: 520px;
+}
+
+
+/*make the image fit its section without stretching weird*/
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+
+/*this section holds the main feature information*/
+.features {
+    padding: 60px 40px;
+    background-color: #f5f5f5;
+}
+
+
+/*section title*/
+.features h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-size: 34px;
+}
+
+
+/*each feature gets its own card*/
+.feature-card {
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    padding: 25px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+
+/*feature title*/
+.feature-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+
+/*feature description*/
+.feature-card p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+
+/*this section explains the purpose of the assistant*/
+.support-section {
+    padding: 60px 40px;
+    text-align: center;
+    background-color: white;
+}
+
+
+/*support section heading*/
+.support-section h2 {
+    margin-top: 0;
+    font-size: 32px;
+}
+
+
+/*keep the support text from stretching too far across the screen*/
+.support-section p {
+    max-width: 850px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+
+/*this is the footer at the bottom of the page*/
+.footer {
+    padding: 40px;
+    background-color: #1e407c;
+    color: white;
+    text-align: center;
+}
+
+
+/*footer heading*/
+.footer-info h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+
+/*footer description*/
+.footer-info p {
+    margin-bottom: 20px;
+}
+
+
+/*keeps the footer links together*/
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+
+/*footer link style*/
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/*small hover effect for footer links*/
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+
+/*small credit text at the bottom*/
+.footer-credit {
+    margin: 0;
+    font-size: 14px;
+}
+
+
+/*make the page easier to use on smaller screens*/
+@media (max-width: 800px) {
+
+    /*stack the navbar content if the screen gets too small*/
+    .navbar {
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+
+    /*keep the logo and website name centered on smaller screens*/
+    .brand {
+        justify-content: center;
+    }
+
+
+    /*make the logo a little smaller on phones*/
+    .penn-state-logo {
+        height: 46px;
+    }
+
+
+    /*stack the hero text and image*/
+    .hero {
+        padding: 40px 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+
+    /*make the title smaller on phones*/
+    .hero-text h1 {
+        font-size: 36px;
+    }
+
+
+    /*center the buttons when stacked*/
+    .hero-buttons {
+        justify-content: center;
+    }
+
+
+    /*reduce spacing on smaller screens*/
+    .features,
+    .support-section,
+    .footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    /*stack footer links if needed*/
+    .footer-links {
+        flex-wrap: wrap;
+    }
+}
