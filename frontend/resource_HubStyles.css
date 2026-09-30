@@ -64,6 +64,7 @@ h1, h2, h3 {
     justify-content: space-between;
     background-color: var(--color-secondary);
     color: white;
+    position: relative; /*lets the centered nav links position against the navbar*/
 }
 
 
@@ -303,6 +304,7 @@ h1, h2, h3 {
     margin-top: 0;
     margin-bottom: 12px;
     font-family: var(--font-heading);
+    color: white; /*global h3 color is navy, invisible on the navy footer*/
 }
 
 .footer-columns p {
@@ -400,6 +402,514 @@ h1, h2, h3 {
     .footer-columns {
         grid-template-columns: 1fr;
         gap: 24px;
+        text-align: center;
+    }
+}
+
+
+/* ===== shared footer pieces used by the existing footer markup ===== */
+.footer-info,
+.footer-links,
+.footer-credit {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-info p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 0;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* ===== new pages: archive, faq, terms ===== */
+
+/*keyboard focus, placeholder until the team decides on one*/
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/*pugh blue is only for dark backgrounds, so use it on the navbar and footer*/
+.navbar a:focus-visible,
+.footer a:focus-visible {
+    outline-color: var(--color-accent-dark);
+}
+
+/*highlights the current page in the navbar*/
+.nav-links a[aria-current="page"] {
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+/*title area at the top of each inner page*/
+.page-header {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 48px 64px 24px;
+}
+
+.page-header h1 {
+    margin: 0 0 16px;
+    font-size: 56px;
+    line-height: 1.1;
+}
+
+.page-header p {
+    max-width: 700px;
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/*main content area under the page header*/
+.page-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 24px 64px 96px;
+}
+
+/*visually hidden text for screen readers*/
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/*form fields*/
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.field label {
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.field input,
+.field select {
+    min-height: 48px;
+    padding: 12px 16px;
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--text-primary);
+    background-color: var(--color-surface);
+    border: 1.5px solid var(--border-input);
+    border-radius: 12px;
+}
+
+/*archive: search row*/
+.library-tools {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+/*archive: filters on the left, cards on the right*/
+.library-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.filters {
+    padding: 24px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+}
+
+.filters fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0 0 24px;
+}
+
+.filters legend {
+    padding: 0;
+    margin-bottom: 8px;
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.filters label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 32px;
+    font-size: 16px;
+}
+
+.filters .button {
+    border: 0;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.results-count {
+    margin: 0 0 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/*topic colors from DesignSpecifics.md, each card gets one*/
+.phonics { --topic: #BC204B; }
+.vocabulary { --topic: #1E407C; }
+.fluency { --topic: #FFD100; }
+.comprehension { --topic: #491D70; }
+.oral { --topic: #1F7A74; }
+.writing { --topic: #2F8A5B; }
+
+.topic-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--topic);
+}
+
+/*resource card with a topic color band across the top*/
+.resource-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+    padding: 24px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--border);
+    border-top: 8px solid var(--topic);
+    border-radius: 24px;
+}
+
+.resource-card h3 {
+    margin: 16px 0 auto;
+    font-size: 23px;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.topic-tag {
+    padding: 4px 12px;
+    border-radius: 999px;
+    background-color: color-mix(in srgb, var(--topic) 15%, white);
+    color: var(--text-primary);
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 2px dashed var(--border);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.card-footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+/*summary that floats just below the card after a short hover delay, so the title and open link stay visible*/
+.card-summary {
+    position: absolute;
+    top: calc(100% - 8px);
+    left: 16px;
+    right: 16px;
+    z-index: 10;
+    padding: 16px;
+    background-color: var(--color-secondary);
+    color: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 30, 68, 0.3);
+    font-size: 16px;
+    line-height: 1.5;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s, visibility 0s 0.15s; /*hides quickly when the mouse leaves*/
+}
+
+.card-summary p {
+    margin: 0;
+}
+
+/*hover waits 1 second (change the 1s to adjust), keyboard focus shows it right away*/
+.resource-card:hover {
+    z-index: 5; /*keeps the popup above neighboring cards*/
+}
+
+.resource-card:hover .card-summary {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.15s 1s, visibility 0s 1s;
+}
+
+.resource-card:focus-within {
+    z-index: 5;
+}
+
+.resource-card:focus-within .card-summary {
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 48px;
+}
+
+.pagination a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 16px;
+    background-color: var(--color-surface);
+    border: 1.5px solid var(--border);
+    border-radius: 999px;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.pagination a[aria-current="page"] {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+/*faq: accordion built from details/summary, no javascript needed*/
+.faq-list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.faq-item {
+    background-color: var(--color-surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+}
+
+.faq-item[open] {
+    border-color: var(--color-primary);
+}
+
+.faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 64px;
+    padding: 12px 24px;
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: "+";
+    font-size: 24px;
+}
+
+.faq-item[open] summary::after {
+    content: "\2212";
+}
+
+.faq-answer {
+    padding: 0 24px 24px;
+    color: var(--text-secondary);
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.faq-answer p {
+    margin: 0;
+}
+
+.faq-contact {
+    max-width: 900px;
+    margin: 32px auto 0;
+    padding: 24px;
+    background-color: var(--color-primary);
+    border-radius: 24px;
+    color: white;
+}
+
+.faq-contact h3 {
+    margin: 0 0 8px;
+    color: white;
+}
+
+.faq-contact p {
+    margin: 0;
+}
+
+/*terms: table of contents on the left, sections on the right*/
+.terms-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.toc {
+    position: sticky;
+    top: 24px;
+    padding: 24px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+}
+
+.toc h2 {
+    margin: 0 0 12px;
+    font-size: 18px;
+}
+
+.toc a {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.toc a:hover {
+    background-color: rgba(30, 64, 124, 0.08);
+}
+
+.terms-body {
+    max-width: 720px;
+}
+
+.terms-section {
+    margin-bottom: 32px;
+    padding: 24px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    scroll-margin-top: 24px;
+}
+
+.terms-section h2 {
+    margin: 0 0 8px;
+    font-size: 28px;
+}
+
+.terms-section p {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/*marks text that still needs to be confirmed with the client*/
+.placeholder {
+    background-color: #FFF4BF;
+    color: var(--text-primary);
+}
+
+.draft-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 16px;
+    background-color: var(--color-accent);
+    border-radius: 999px;
+    color: var(--color-secondary);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    .page-header,
+    .page-content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .page-header h1 {
+        font-size: 36px;
+    }
+
+    .library-tools,
+    .library-layout,
+    .terms-layout,
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .toc {
+        position: static;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+
+    .footer-info,
+    .footer-credit {
         text-align: center;
     }
 }
