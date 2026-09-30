@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resource Library | Novice Teacher Resource Hub</title>
+
+    <!--connect this html page to the css file-->
+    <link rel="stylesheet" href="resource_HubStyles.css">
+</head>
+
+
+<body>
+
+    <!--same navigation bar as the home page-->
+    <nav class="navbar">
+        <div class="brand">
+            <img src="PSU_HOR_RGB_REV_3C.png" alt="Penn State" class="penn-state-logo">
+            <h2>Novice Teacher Resource Hub</h2>
+        </div>
+
+        <div class="nav-links">
+            <a href="resourceHub.html">Home</a>
+            <a href="archive.html" aria-current="page">Resources</a>
+            <a href="#">AI Assistant</a>
+        </div>
+    </nav>
+
+
+    <!--title area for this page-->
+    <header class="page-header">
+        <h1>Resource Library</h1>
+        <p>Approved literacy resources for K–2 English learners. Hover a card for its summary, then open the original in a new tab.</p>
+    </header>
+
+
+    <main class="page-content">
+        <div class="library-tools">
+            <div class="field"><label for="search">Search resources</label><input id="search" type="search" placeholder="Try phonics, read-aloud, or sentence frames"></div>
+            <div class="field"><label for="sort">Sort by</label><select id="sort"><option>Most relevant</option><option>A–Z</option></select></div>
+        </div>
+
+        <div class="library-layout">
+            <!--filters are layout only for now-->
+            <aside class="filters" aria-label="Filters">
+                <fieldset><legend>Grade</legend>
+                    <label><input type="checkbox">Kindergarten</label>
+                    <label><input type="checkbox">1st grade</label>
+                    <label><input type="checkbox">2nd grade</label>
+                </fieldset>
+                <fieldset><legend>Topic</legend>
+                    <label><input type="checkbox"><span class="topic-dot phonics"></span>Phonics</label>
+                    <label><input type="checkbox"><span class="topic-dot vocabulary"></span>Vocabulary</label>
+                    <label><input type="checkbox"><span class="topic-dot fluency"></span>Fluency</label>
+                    <label><input type="checkbox"><span class="topic-dot comprehension"></span>Comprehension</label>
+                    <label><input type="checkbox"><span class="topic-dot oral"></span>Oral language</label>
+                    <label><input type="checkbox"><span class="topic-dot writing"></span>Writing</label>
+                </fieldset>
+                <fieldset><legend>Type</legend>
+                    <label><input type="checkbox">Strategy</label>
+                    <label><input type="checkbox">Lesson</label>
+                    <label><input type="checkbox">Article</label>
+                    <label><input type="checkbox">Video</label>
+                </fieldset>
+                <button class="button" type="button">Clear filters</button>
+            </aside>
+
+            <section aria-label="Resources">
+                <p class="results-count">Showing 9 of [N] resources</p>
+                <div class="card-grid">
+                    <article class="resource-card phonics">
+                        <div class="card-meta"><span class="topic-tag">Phonics</span><span>Strategy · K–2</span></div>
+                        <h3>Phonics routines for multilingual learners</h3>
+                        <div class="card-footer"><span>[Source]</span><a href="#" target="_blank" rel="noopener">Open<span class="visually-hidden"> (opens in new tab)</span></a></div>
+                        <!--floats below the card after hovering for a second, or right away on keyboard focus-->
+                        <div class="card-summary"><p>[Placeholder summary of the resource.]</p></div>
+                    </article>
+                    <article class="resource-card vocabulary">
+                        <div class="card-meta"><span class="topic-tag">Vocabulary</span><span>Strategy · K–1</span></div>
+                        <h3>Teaching vocabulary with visuals and gestures</h3>
+                        <div class="card-footer"><span>[Source]</span><a href="#" target="_blank" rel="noopener">Open<span class="visually-hidden"> (opens in new tab)</span></a></div>
+                        <!--floats below the card after hovering for a second, or right away on keyboard focus-->
+                        <div class="card-summary"><p>[Placeholder summary of the resource.]</p></div>
+                    </article>
+                    <article class="resource-card vocabulary">
+                        <div class="card-meta"><span class="topic-tag">Vocabulary</span><span>Article · 1–2</span></div>
+                        <h3>Using cognates to build word knowledge</h3>
+                        <div class="card-footer"><span>[Source]</span><a href="#" target="_blank" rel="noopener">Open<span class="visually-hidden"> (opens in new tab)</span></a></div>
+                        <!--floats below the card after hovering for a second, or right away on keyboard focus-->
+                        <div class="card-summary"><p>[Placeholder summary of the resource.]</p></div>
+                    </article>
+                    <article class="resource-card comprehension">
+                        <div class="card-meta"><span class="topic-tag">Comprehension</span><span>Lesson · K–2</span></div>
+                        <h3>Interactive read-aloud planning guide</h3>
+                        <div class="card-footer"><span>[Source]</span><a href="#" target="_blank" rel="noopener">Open<span class="visually-hidden"> (opens in new tab)</span></a></div>
+                        <!--floats below the card after hovering for a second, or right away on keyboard focus-->
+                        <div class="card-summary"><p>[Placeholder summary of the resource.]</p></div>
+                    </article>
+                    <article class="resource-card oral">
+                        <div class="card-meta"><span class="topic-tag">Oral language</span><span>Strategy · K–2</span></div>
+                        <h3>Sentence frames for academic talk</h3>
+                        <div class="card-footer"><span>[Source]</span><a href="#" target="_blank" rel="noopener">Open<span class="visually-hidden"> (opens in new tab)</span></a></div>
+                        <!--floats below the card after hovering for a second, or right away on keyboard focus-->
+                        <div class="card-summary"><p>[Placeholder summary of the resource.]</p></div>
+                    </article>
+                    <article class="resource-card fluency">
+                        <div class="card-meta"><span class="topic-tag">Fluency</span><span>Strategy · 1–2</span></div>
+                        <h3>Building fluency with repeated reading</h3>
+                        <div class="card-footer"><span>[Source]</span><a href="#" target="_blank" rel="noopener">Open<span class="visually-hidden"> (opens in new tab)</span></a></div>
+                        <!--floats below the card after hovering for a second, or right away on keyboard focus-->
+                        <div class="card-summary"><p>[Placeholder summary of the resource.]</p></div>
+                    </article>
+                    <article class="resource-card phonics">
+                        <div class="card-meta"><span class="topic-tag">Phonics</span><span>Video · K</span></div>
+                        <h3>Phonemic awareness warm-ups</h3>
+                        <div class="card-footer"><span>[Source]</span><a href="#" target="_blank" rel="noopener">Open<span class="visually-hidden"> (opens in new tab)</span></a></div>
+                        <!--floats below the card after hovering for a second, or right away on keyboard focus-->
+                        <div class="card-summary"><p>[Placeholder summary of the resource.]</p></div>
+                    </article>
+                    <article class="resource-card writing">
+                        <div class="card-meta"><span class="topic-tag">Writing</span><span>Article · 1–2</span></div>
+                        <h3>Supporting early writers learning English</h3>
+                        <div class="card-footer"><span>[Source]</span><a href="#" target="_blank" rel="noopener">Open<span class="visually-hidden"> (opens in new tab)</span></a></div>
+                        <!--floats below the card after hovering for a second, or right away on keyboard focus-->
+                        <div class="card-summary"><p>[Placeholder summary of the resource.]</p></div>
+                    </article>
+                    <article class="resource-card comprehension">
+                        <div class="card-meta"><span class="topic-tag">Comprehension</span><span>Strategy · K–2</span></div>
+                        <h3>Checking understanding with low language demands</h3>
+                        <div class="card-footer"><span>[Source]</span><a href="#" target="_blank" rel="noopener">Open<span class="visually-hidden"> (opens in new tab)</span></a></div>
+                        <!--floats below the card after hovering for a second, or right away on keyboard focus-->
+                        <div class="card-summary"><p>[Placeholder summary of the resource.]</p></div>
+                    </article>
+                </div>
+                <nav class="pagination" aria-label="Pagination"><a href="#">Previous</a><a href="#" aria-current="page">1</a><a href="#">2</a><a href="#">3</a><a href="#">Next</a></nav>
+            </section>
+        </div>
+    </main>
+
+
+    <!--same footer as the home page, with terms added-->
+    <footer class="footer">
+        <div class="footer-info">
+            <h3>Novice Teacher Resource Hub</h3>
+            <p>Supporting novice and student teachers with literacy resources and instructional guidance.</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="faq.html">FAQ</a>
+            <a href="terms.html">Terms &amp; Privacy</a>
+        </div>
+
+        <p class="footer-credit">Penn State Abington CMPSC 487 Capstone Project</p>
+    </footer>
+
+</body>
+
+</html>
