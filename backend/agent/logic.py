@@ -1,10 +1,7 @@
 from .agent import client, config
 from pydantic import BaseModel
 from typing import Literal
-
-class AIMessage(BaseModel):
-    role: Literal["assistant", "user"]
-    content: str
+from structures import AIMessage
 
 #optionally can have current message in history
 async def chat(message: str, history: list[AIMessage]) -> AIMessage:
