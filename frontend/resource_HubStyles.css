@@ -407,7 +407,7 @@ h1, h2, h3 {
 }
 
 
-/* ===== shared footer pieces used by the existing footer markup ===== */
+/*shared footer pieces used by the existing footer markup*/
 .footer-info,
 .footer-links,
 .footer-credit {
@@ -439,7 +439,7 @@ h1, h2, h3 {
     text-decoration: underline;
 }
 
-/*keyboard focus placeholder for now*/
+/*keyboard focus - placeholder for now*/
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
