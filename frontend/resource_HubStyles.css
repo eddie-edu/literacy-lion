@@ -439,10 +439,7 @@ h1, h2, h3 {
     text-decoration: underline;
 }
 
-
-/* ===== new pages: archive, faq, terms ===== */
-
-/*keyboard focus, placeholder until the team decides on one*/
+/*keyboard focus placeholder for now*/
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -452,7 +449,7 @@ summary:focus-visible {
     outline-offset: 2px;
 }
 
-/*pugh blue is only for dark backgrounds, so use it on the navbar and footer*/
+/*pugh blue for dark backgrounds*/
 .navbar a:focus-visible,
 .footer a:focus-visible {
     outline-color: var(--color-accent-dark);
@@ -525,7 +522,7 @@ summary:focus-visible {
     border-radius: 12px;
 }
 
-/*archive: search row*/
+/*archive search row*/
 .library-tools {
     display: grid;
     grid-template-columns: 1fr 240px;
@@ -533,7 +530,7 @@ summary:focus-visible {
     margin-bottom: 32px;
 }
 
-/*archive: filters on the left, cards on the right*/
+/*archive filters on the left, cards on the right*/
 .library-layout {
     display: grid;
     grid-template-columns: 240px 1fr;
@@ -589,7 +586,7 @@ summary:focus-visible {
     gap: 24px;
 }
 
-/*topic colors from DesignSpecifics.md, each card gets one*/
+/*card topic colors from DesignSpecifics.md*/
 .phonics { --topic: #BC204B; }
 .vocabulary { --topic: #1E407C; }
 .fluency { --topic: #FFD100; }
@@ -653,7 +650,7 @@ summary:focus-visible {
     text-decoration: none;
 }
 
-/*summary that floats just below the card after a short hover delay, so the title and open link stay visible*/
+/*summary that floats just below the card with short hover delay so title and link stay visible*/
 .card-summary {
     position: absolute;
     top: calc(100% - 8px);
@@ -669,14 +666,14 @@ summary:focus-visible {
     line-height: 1.5;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.15s, visibility 0s 0.15s; /*hides quickly when the mouse leaves*/
+    transition: opacity 0.15s, visibility 0s 0.15s; /*hides when the mouse leaves*/
 }
 
 .card-summary p {
     margin: 0;
 }
 
-/*hover waits 1 second (change the 1s to adjust), keyboard focus shows it right away*/
+/*hover waits 1 second*/
 .resource-card:hover {
     z-index: 5; /*keeps the popup above neighboring cards*/
 }
@@ -725,7 +722,7 @@ summary:focus-visible {
     color: white;
 }
 
-/*faq: accordion built from details/summary, no javascript needed*/
+/*faq accordion built from details/summary*/
 .faq-list {
     max-width: 900px;
     margin: 0 auto;
@@ -800,7 +797,7 @@ summary:focus-visible {
     margin: 0;
 }
 
-/*terms: table of contents on the left, sections on the right*/
+/*terms table of contents on the left, sections on the right*/
 .terms-layout {
     display: grid;
     grid-template-columns: 240px 1fr;
