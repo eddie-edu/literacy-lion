@@ -1,3 +1,4 @@
+import enum
 import uuid
 from datetime import datetime, timezone
 from sqlalchemy import Column, String, Text, Integer, ForeignKey, DateTime
@@ -6,13 +7,17 @@ from sqlalchemy.orm import declarative_base, relationship
 
 Base = declarative_base()
 
+class UserRole(str, enum.Enum):
+    USER = "user"
+    ADMIN = "admin"
+
 class User(Base):
     __tablename__ = "users"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     email = Column(String, unique=True, nullable=False)
     password_hash = Column(String, nullable=False)
-    role = Column(String, default="user") # 'user' or 'admin'
+    role = Column(Enum(UserRole), default=UserRole.USER, nullable=False)
     created_at = Column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
 
     sessions = relationship("ChatSession", back_populates="user", cascade="all, delete-orphan")
