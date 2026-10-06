@@ -1,27 +1,838 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-}
-.banner{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    width: 100%;
-    height: 100px;
-    background-color: #1e407c;
-    color:aliceblue;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    box-sizing: content-box;
+/*main styles for the literacy lion website*/
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap");
+
+
+/*main colors and fonts used across the website*/
+:root {
+  --navy:#1f3a7a;
+  --deep:#001d42;
+  --crimson:#b3203f;
+  --yellow:#ffd000;
+  --cream:#faf5f0;
+  --butter:#fff4c8;
+  --lavender:#e9e5f5;
+  --sky:#dfe9f5;
+  --teal:#1f7a6e;
+  --green:#2e8b57;
+  --purple:#4a2a7a;
+  --ink:#0b1b3a;
+  --muted:#4a5875;
+  --line:#e8dcc8;
+  --r:20px;
+  --display:"Fredoka","Trebuchet MS",sans-serif;
+  --body:"Nunito","Segoe UI",Arial,sans-serif;
+  --wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0 40V20C150 0 300 40 450 20S750 0 900 20 1050 40 1200 20V40Z'/%3E%3C/svg%3E");
 }
 
-.banner h3{
-    font-size: 15Spx;
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
-}   
+
+/*make sizing easier to control*/
+*,
+*::before,
+*::after {
+  box-sizing:border-box;
+}
+
+
+/*basic page setup*/
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:5rem;
+}
+
+body {
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font:1.0625rem/1.6 var(--body);
+}
+
+
+/*remove the default list styling*/
+ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+
+/*style the main headings*/
+h1,
+h2,
+h3 {
+  font-family:var(--display);
+  line-height:1.15;
+  color:var(--deep);
+  margin:0 0 .5em;
+}
+
+h1 {
+  font-size:clamp(2.3rem,5.5vw,3.8rem);
+}
+
+h2 {
+  font-size:clamp(1.6rem,3.2vw,2.2rem);
+}
+
+h3 {
+  font-size:1.2rem;
+}
+
+p {
+  margin:0 0 1em;
+}
+
+a {
+  color:var(--navy);
+}
+
+
+/*show where keyboard users are focused*/
+:focus-visible {
+  outline:3px solid var(--crimson);
+  outline-offset:3px;
+}
+
+
+/*lets keyboard users skip straight to the page content*/
+.skip-link {
+  position:absolute;
+  left:-999px;
+  background:var(--yellow);
+  padding:.6rem 1rem;
+  z-index:10;
+}
+
+.skip-link:focus {
+  left:0;
+}
+
+
+/*top penn state project bar*/
+.top-bar {
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  flex-wrap:wrap;
+  background:var(--deep);
+  color:#fff;
+  padding:.45rem clamp(1rem,4vw,3rem);
+  font:600 .82rem var(--body);
+}
+
+.top-bar p {
+  margin:0;
+}
+
+.top-bar p:last-child {
+  color:#9fb6e6;
+}
+
+
+/*this is the main header*/
+.site-header {
+  position:sticky;
+  top:0;
+  z-index:20;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  background:var(--cream);
+  padding:.7rem clamp(1rem,3vw,2.5rem);
+}
+
+
+/*keep the literacy lion branding together*/
+.logo {
+  display:flex;
+  flex-direction:column;
+  text-decoration:none;
+  line-height:1;
+}
+
+.logo-word {
+  font:700 1.55rem var(--display);
+  color:var(--navy);
+}
+
+.logo-word span {
+  color:var(--deep);
+}
+
+.logo-sub {
+  font:700 .6rem var(--body);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+
+/*keep the navigation links together*/
+.main-nav ul {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:.1rem;
+}
+
+
+/*style the navigation links as pills*/
+.main-nav a {
+  display:block;
+  padding:.4rem .7rem;
+  border-radius:999px;
+  font:700 .86rem var(--body);
+  color:var(--deep);
+  text-decoration:none;
+}
+
+.main-nav a:hover,
+.main-nav a[aria-current] {
+  background:var(--sky);
+}
+
+
+/*basic button style*/
+.button {
+  display:inline-block;
+  padding:.7rem 1.5rem;
+  border-radius:999px;
+  font:700 1rem var(--body);
+  text-decoration:none;
+  color:#fff;
+  white-space:nowrap;
+}
+
+.button-primary {
+  background:var(--navy);
+  box-shadow:0 4px 0 var(--deep);
+}
+
+.button-secondary {
+  background:var(--crimson);
+  box-shadow:0 4px 0 #7d1228;
+}
+
+
+/*small button hover effect*/
+.button:hover {
+  transform:translateY(2px);
+}
+
+
+/*spacing for the main sections*/
+main > section {
+  position:relative;
+  padding:clamp(2.5rem,6vw,4.5rem) clamp(1rem,5vw,3rem);
+}
+
+
+/*this is where the reading and writing image will go*/
+.image-placeholder {
+  aspect-ratio:16/6;
+  border-radius:var(--r);
+  background:var(--butter);
+  border:3px dashed var(--yellow);
+}
+
+
+/*this is the main hero section*/
+.hero {
+  text-align:center;
+  padding-bottom:0;
+}
+
+
+/*small label above the main title*/
+.badge {
+  display:inline-block;
+  background:var(--yellow);
+  color:var(--deep);
+  font:700 .85rem var(--body);
+  padding:.25rem .9rem;
+  border-radius:999px;
+}
+
+
+/*main hero title*/
+.hero h1 {
+  max-width:16ch;
+  margin:.4em auto;
+}
+
+.hero em {
+  font-style:normal;
+  color:var(--crimson);
+}
+
+
+/*short text under the main title*/
+.lead {
+  max-width:46ch;
+  margin:0 auto 1.5rem;
+  color:var(--muted);
+}
+
+
+/*keep the hero buttons together*/
+.hero-actions {
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+
+/*size the image area under the hero*/
+.hero .image-placeholder {
+  max-width:1000px;
+  margin:2.5rem auto 0;
+  border-bottom-left-radius:0;
+  border-bottom-right-radius:0;
+}
+
+
+/*make the curved section edges*/
+.band-navy,
+.band-yellow {
+  margin-top:30px;
+  margin-bottom:30px;
+}
+
+.band-navy::before,
+.band-navy::after,
+.band-yellow::after {
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  height:30px;
+  background:var(--navy);
+  -webkit-mask:var(--wave) center/100% 100%;
+  mask:var(--wave) center/100% 100%;
+}
+
+.band-navy::before {
+  top:0;
+  transform:translateY(-99%);
+}
+
+.band-navy::after {
+  bottom:0;
+  transform:translateY(99%) scaleY(-1);
+}
+
+.band-yellow::after {
+  bottom:0;
+  background:var(--butter);
+  transform:translateY(99%) scaleY(-1);
+}
+
+
+/*this section helps teachers choose where to start*/
+.band-navy {
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+}
+
+.band-navy h2 {
+  color:#fff;
+}
+
+.sub {
+  color:#d6e0f7;
+}
+
+
+/*keep the resource cards in a grid*/
+.card-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.25rem;
+  max-width:1100px;
+  margin:2rem auto 0;
+  text-align:left;
+}
+
+
+/*basic card style*/
+.card {
+  background:#fff;
+  color:var(--ink);
+  border-radius:var(--r);
+  padding:1.5rem;
+  box-shadow:0 5px 0 rgba(0,0,0,.28);
+  border-top:6px solid var(--navy);
+}
+
+.card::before {
+  content:"";
+  display:block;
+  width:2.4rem;
+  height:2.4rem;
+  border-radius:10px;
+  margin-bottom:.8rem;
+  background:var(--navy);
+}
+
+.card h3 a {
+  color:var(--deep);
+  text-decoration:none;
+}
+
+.card h3 a:hover {
+  text-decoration:underline;
+}
+
+.card p {
+  margin:0;
+  color:var(--muted);
+  font-size:.97rem;
+}
+
+
+/*give each card its own color*/
+.c-crimson {
+  border-top-color:var(--crimson);
+}
+
+.c-crimson::before {
+  background:var(--crimson);
+}
+
+.c-purple {
+  border-top-color:var(--purple);
+}
+
+.c-purple::before {
+  background:var(--purple);
+}
+
+.c-teal {
+  border-top-color:var(--teal);
+}
+
+.c-teal::before {
+  background:var(--teal);
+}
+
+.c-yellow {
+  border-top-color:var(--yellow);
+}
+
+.c-yellow::before {
+  background:var(--yellow);
+}
+
+.c-green {
+  border-top-color:var(--green);
+}
+
+.c-green::before {
+  background:var(--green);
+}
+
+
+/*this is the mission section*/
+.band-yellow {
+  background:var(--butter);
+  text-align:center;
+}
+
+
+/*style the read letter blocks*/
+.read-tiles {
+  display:flex;
+  justify-content:center;
+  gap:.4rem;
+  margin:0 0 .5rem;
+}
+
+.read-tiles span {
+  width:2.4rem;
+  height:2.4rem;
+  display:grid;
+  place-items:center;
+  border-radius:8px;
+  color:#fff;
+  font:700 1.2rem var(--display);
+  box-shadow:0 3px 0 rgba(0,0,0,.3);
+}
+
+.read-tiles span:nth-child(1) {
+  background:var(--crimson);
+}
+
+.read-tiles span:nth-child(2) {
+  background:var(--navy);
+}
+
+.read-tiles span:nth-child(3) {
+  background:var(--purple);
+}
+
+.read-tiles span:nth-child(4) {
+  background:var(--teal);
+}
+
+
+/*small label above the mission text*/
+.eyebrow {
+  font:700 .75rem var(--body);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#6b4e00;
+}
+
+
+/*main mission text*/
+.mission-text {
+  font:600 clamp(1.35rem,3vw,1.9rem)/1.35 var(--display);
+  color:var(--deep);
+  max-width:34ch;
+  margin:0 auto;
+}
+
+
+/*keep the notebook and ai section next to each other*/
+.tip-row {
+  display:grid;
+  grid-template-columns:1.6fr 1fr;
+  gap:1.5rem;
+  max-width:1200px;
+  margin:0 auto;
+  padding-top:5rem;
+}
+
+
+/*make the literacy tip look like a notebook*/
+.notebook {
+  background:#fff repeating-linear-gradient(
+    transparent 0 31px,
+    #dbe3f3 31px 32px
+  );
+  border:3px solid var(--deep);
+  border-radius:var(--r);
+  box-shadow:8px 8px 0 var(--crimson);
+  padding:2.25rem 2rem 2rem 4.5rem;
+  position:relative;
+}
+
+
+/*red notebook margin line*/
+.notebook::before {
+  content:"";
+  position:absolute;
+  left:3rem;
+  top:0;
+  bottom:0;
+  width:2px;
+  background:#f0a0b0;
+}
+
+
+/*small literacy tip label*/
+.tip-label {
+  font:700 .8rem var(--body);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--crimson);
+}
+
+.notebook h2 {
+  font-size:clamp(1.6rem,3.2vw,2.2rem);
+}
+
+
+/*this is the ai decision making card*/
+.ai-card {
+  background:var(--lavender);
+  border-radius:var(--r);
+  padding:2rem;
+}
+
+
+/*keep the ai safety points together*/
+.check-list {
+  display:grid;
+  gap:.6rem;
+  margin:1rem 0 1.5rem;
+}
+
+.check-list li {
+  background:#fff;
+  border-radius:14px;
+  padding:.65rem 1rem .65rem 3rem;
+  position:relative;
+  font:600 .95rem var(--body);
+}
+
+
+/*add the checkmark beside each point*/
+.check-list li::before {
+  content:"\2713";
+  position:absolute;
+  left:1rem;
+  top:.6rem;
+  width:1.5rem;
+  height:1.5rem;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:var(--green);
+  color:#fff;
+  font-size:.85rem;
+}
+
+
+/*this section shows the different resources*/
+.resources {
+  max-width:1200px;
+  margin:0 auto;
+}
+
+
+/*keep the resource filters together*/
+.type-filters {
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+  margin:1rem 0 1.5rem;
+}
+
+
+/*style the resource filters as pills*/
+.type-filters a {
+  display:inline-block;
+  padding:.4rem 1rem;
+  border-radius:999px;
+  background:#fff;
+  border:2px solid var(--navy);
+  font:700 .9rem var(--body);
+  text-decoration:none;
+}
+
+.type-filters a:hover {
+  background:var(--navy);
+  color:#fff;
+}
+
+
+/*remove the extra spacing above these cards*/
+.card-grid.light {
+  margin-top:0;
+}
+
+
+/*make the resource cards a little simpler*/
+.card-grid.light .card {
+  box-shadow:none;
+  border:2px solid var(--line);
+  border-top-width:8px;
+}
+
+.card-grid.light .card::before {
+  display:none;
+}
+
+
+/*small label showing the resource type*/
+.type-pill {
+  display:inline-block;
+  padding:.15rem .7rem;
+  border-radius:999px;
+  background:var(--sky);
+  font:700 .8rem var(--body)!important;
+  color:var(--navy)!important;
+  margin-bottom:.6rem!important;
+}
+
+
+/*small source text under each resource*/
+.source {
+  margin-top:.8rem!important;
+  font-size:.88rem!important;
+}
+
+
+/*this section explains the penn state connection*/
+.partner-strip {
+  max-width:1100px;
+  margin:0 auto 3rem;
+  background:#fff;
+  border-radius:var(--r);
+  box-shadow:0 3px 0 var(--line);
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:.5rem 1.5rem;
+  padding:1.5rem 2rem!important;
+}
+
+.partner-strip p {
+  margin:0;
+}
+
+.strip-label {
+  font:700 .75rem var(--body);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.strip-name {
+  font:700 1.3rem var(--display);
+  color:var(--deep);
+}
+
+.strip-note {
+  color:var(--muted);
+  font-size:.92rem;
+  margin-left:auto!important;
+  max-width:36ch;
+}
+
+
+/*this is the footer at the bottom of the page*/
+.site-footer {
+  background:var(--deep);
+  color:#cfd9f2;
+  padding:3rem clamp(1rem,5vw,3rem) 1.5rem;
+  display:grid;
+  grid-template-columns:1fr 1.5fr;
+  gap:2rem;
+  border-top:8px solid;
+  border-image:linear-gradient(
+    90deg,
+    var(--navy) 0 20%,
+    #8fb4e8 20% 40%,
+    var(--yellow) 40% 60%,
+    var(--crimson) 60% 80%,
+    var(--teal) 80%
+  ) 1;
+}
+
+
+/*literacy lion branding inside the footer*/
+.site-footer .logo-word {
+  color:#fff;
+}
+
+.site-footer .logo-word span {
+  color:#8fb4e8;
+}
+
+
+/*footer headings*/
+.site-footer h2 {
+  font-size:1rem;
+  color:var(--yellow);
+}
+
+
+/*footer links*/
+.site-footer a {
+  color:#fff;
+  text-decoration:none;
+}
+
+.site-footer a:hover {
+  text-decoration:underline;
+}
+
+
+/*keep the footer links in columns*/
+.footer-nav {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+}
+
+.footer-nav li {
+  margin-bottom:.4rem;
+}
+
+.footer-nav p {
+  margin:0;
+}
+
+
+/*small credit at the bottom*/
+.footer-credit {
+  grid-column:1/-1;
+  margin:1rem 0 0;
+  padding-top:1.25rem;
+  border-top:1px solid rgba(255,255,255,.15);
+  font-size:.85rem;
+}
+
+
+/*make the page work better on smaller screens*/
+@media (max-width:1000px) {
+
+  .site-header {
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .card-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .tip-row {
+    grid-template-columns:1fr;
+  }
+}
+
+
+/*stack more sections when the screen gets really small*/
+@media (max-width:640px) {
+
+  .card-grid,
+  .footer-nav,
+  .site-footer {
+    grid-template-columns:1fr;
+  }
+
+  .notebook {
+    padding-left:3.25rem;
+  }
+
+  .notebook::before {
+    left:2.25rem;
+  }
+
+  .strip-note {
+    margin-left:0!important;
+  }
+}
+
+
+/*turn off movement if the user prefers less motion*/
+@media (prefers-reduced-motion:reduce) {
+
+  html {
+    scroll-behavior:auto;
+  }
+
+  .button:hover {
+    transform:none;
+  }
+}
+
+
+/*keep the penn state logo clean at the top*/
+.penn-state-branding {
+  background:#fff;
+  padding:.25rem clamp(1rem,4vw,3rem);
+}
+
+
+/*control the penn state logo size*/
+.penn-state-branding img {
+  display:block;
+  height:64px;
+  width:auto;
+  margin:-15px 0 -15px -15px;
+}
