@@ -1,23 +1,25 @@
-from sqlalchemy import Admin, ModelView
-from sqlalchemy.authentication import AuthenticatedBackend
+from passlib.hash import bcrypt
+from sqladmin import Admin, ModelView
+from sqladmin.authentication import AuthenticationBackend
 from sqlalchemy import select
 from sqlalchemy.orm import Session
-from passlib.hash import bcrypt
-from .models import User, Resource
 
-class AdminAuth(AuthenticatedBackend):
-    def __init__(self, sectet_key, engine):
-        super().__init__(sectet_key=sectet_key)
+from .models import Document, User, UserRole
+
+
+class AdminAuth(AuthenticationBackend):
+    def __init__(self, secret_key, engine):
+        super().__init__(secret_key=secret_key)
         self.engine = engine
 
     async def login(self, request):
         form = await request.form()
         with Session(self.engine) as s:
             u = s.scalar(select(User).where(User.email == form["username"]))
-        if u and u.role == "admin" and bcrypt.verify(form["password"], u.password_hash):
-            return u
+        if u and u.role == UserRole.ADMIN and bcrypt.verify(form["password"], u.password_hash):
+            request.session.update({"admin": str(u.id)})
+            return True
         return False
-
 
     async def logout(self, request):
         request.session.clear()
@@ -26,12 +28,15 @@ class AdminAuth(AuthenticatedBackend):
     async def authenticate(self, request):
         return "admin" in request.session
 
-class ResourceAdmin(ModelView, model=Resource):
-    name_plural = "Resources"
-    column_list = [Resource.id, Resource.title, Resource.url]
-    column_searchable_list = [Resource.title]
-    column_sortable_list = [Resource.title]
+
+class DocumentAdmin(ModelView, model=Document):
+    name_plural = "Documents"
+    column_list = [Document.id, Document.title, Document.publisher, Document.url, Document.source_type]
+    column_searchable_list = [Document.title]
+    column_sortable_list = [Document.title]
+    form_columns = [Document.title, Document.summary, Document.publisher, Document.url, Document.source_type]
+
 
 def setup_admin(app, engine, secret_key):
     admin = Admin(app, engine, authentication_backend=AdminAuth(secret_key, engine))
-    admin.add_view(ResourceAdmin)
+    admin.add_view(DocumentAdmin)

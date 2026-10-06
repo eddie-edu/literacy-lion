@@ -1,0 +1,5 @@
+PROVIDER_URL: "https://api.anthropic.com/v1/"
+MODEL: "claude-haiku-4-5"
+MAX_TOKENS: 1000
+TEMPERATURE: 0.7
+MAIN_PROMPT: |

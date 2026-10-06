@@ -2,12 +2,22 @@ import os
 
 from fastapi import FastAPI
 from sqlalchemy import create_engine
+
 from .admin import setup_admin
 from app.assistant.config import settings, validate_settings
 
+
+def _require_env(name: str) -> str:
+    value = os.getenv(name)
+    if not value:
+        raise RuntimeError(f"Missing required environment variable: {name}")
+    return value
+
+
 app = FastAPI(title="AI Resource Hub")
-engine = create_engine(os.environ["DATABASE_URL"])
-setup_admin(app, engine, os.environ["ADMIN_SESSION_SECRET"])
+engine = create_engine(_require_env("DATABASE_URL"))
+setup_admin(app, engine, _require_env("ADMIN_SESSION_SECRET"))
+
 
 @app.on_event("startup")
 def validate_assistant_config() -> None:

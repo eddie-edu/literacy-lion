@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+pydantic
+pytest
+openai
+pyyaml
+sqlalchemy
+alembic
+psycopg2-binary
+sqladmin
+passlib[bcrypt]
+itsdangerous
