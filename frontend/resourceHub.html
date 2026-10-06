@@ -1,18 +1,435 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Welcome Page</title>
-        <link rel="stylesheet" href="resource_HubStyles.css">
-    </head>
-    <body>
-        <div class="banner">
-            <h3>Welcome to the Resource Hub!!!</h3>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Literacy Lion | Penn State Abington</title>
+  <meta name="description" content="Strategies, examples, and planning tools for teachers of young multilingual readers.">
 
-        </div>
-        <div class="banner h3">
-            <h3>Here you will find all the resources you need to get started with your coding journey!</h3>
+  <!--these links are placeholders until the real pages are made-->
+  <link rel="stylesheet" href="resource_HubStyles.css">
+</head>
+<body>
 
-        </div>
-    </body>
+  <!--lets keyboard users skip straight to the main content-->
+  <a class="skip-link" href="#main">Skip to main content</a>
 
+
+  <!--official penn state branding at the top-->
+  <div class="penn-state-branding">
+    <img src="PS_HOR_RGB_3C.png" alt="Penn State">
+  </div>
+
+
+  <!--small bar showing the penn state project info-->
+  <div class="top-bar">
+    <p>A Penn State Abington project</p>
+    <p>Grant-funded literacy research</p>
+  </div>
+
+
+  <!--this is the main header and navigation-->
+  <header class="site-header">
+
+    <!--literacy lion branding goes here-->
+    <a class="logo" href="#top">
+
+      <!--swap this with the real lion logo when we have it-->
+      <span class="logo-word">literacy<span>lion.</span></span>
+      <span class="logo-sub">Penn State Abington</span>
+
+    </a>
+
+
+    <!--these are the main areas teachers can move through-->
+    <nav class="main-nav" aria-label="Main">
+      <ul>
+        <li><a href="#start-here" aria-current="page">Start Here</a></li>
+        <li><a href="#know-your-learners">Know Your Learners</a></li>
+        <li><a href="#teach-literacy">Teach Literacy</a></li>
+        <li><a href="#translanguaging">Translanguaging</a></li>
+        <li><a href="#plan-differentiate">Plan &amp; Differentiate</a></li>
+        <li><a href="#ai-decisions">AI + Teacher Decisions</a></li>
+        <li><a href="#resources">Resources</a></li>
+      </ul>
+    </nav>
+
+
+    <!--this will eventually open leo-->
+    <a class="button button-primary" href="#">Chat with Leo</a>
+
+  </header>
+
+
+  <main id="main">
+
+
+    <!--this is the main hero section-->
+    <section class="hero" id="top">
+
+      <p class="badge">For new teachers of K–2 English learners</p>
+
+      <h1>Every young reader deserves a <em>confident</em> teacher.</h1>
+
+      <p class="lead">
+        Strategies, examples, and planning tools for teachers of young multilingual readers.
+      </p>
+
+
+      <!--these buttons take teachers to the main parts of the site-->
+      <p class="hero-actions">
+
+        <a class="button button-primary" href="#start-here">
+          Start here
+        </a>
+
+        <a class="button button-secondary" href="#resources">
+          Browse resources
+        </a>
+
+      </p>
+
+
+      <!--this is where the reading and writing image will go-->
+      <div
+        class="image-placeholder"
+        role="img"
+        aria-label="Illustration placeholder: students reading and writing with their teacher">
+      </div>
+
+    </section>
+
+
+    <!--this section helps teachers choose where to start-->
+    <section class="band-navy" id="start-here" aria-labelledby="start-title">
+
+      <h2 id="start-title">Start here</h2>
+
+      <p class="sub">Pick the question you have today.</p>
+
+
+      <!--each card goes to a different resource area-->
+      <ul class="card-grid">
+
+        <li class="card c-crimson" id="know-your-learners">
+
+          <h3>
+            <a href="#">Know Your Learners</a>
+          </h3>
+
+          <p>
+            Understand your students' languages, strengths, and needs.
+          </p>
+
+        </li>
+
+
+        <li class="card c-navy" id="teach-literacy">
+
+          <h3>
+            <a href="#">Teach Literacy</a>
+          </h3>
+
+          <p>
+            Phonics, vocabulary, fluency, comprehension, and writing.
+          </p>
+
+        </li>
+
+
+        <li class="card c-purple" id="translanguaging">
+
+          <h3>
+            <a href="#">Translanguaging</a>
+          </h3>
+
+          <p>
+            Use home languages to support reading in English.
+          </p>
+
+        </li>
+
+
+        <li class="card c-teal" id="plan-differentiate">
+
+          <h3>
+            <a href="#">Plan &amp; Differentiate</a>
+          </h3>
+
+          <p>
+            Plan lessons and adjust them for your readers.
+          </p>
+
+        </li>
+
+
+        <li class="card c-yellow">
+
+          <h3>
+            <a href="#ai-decisions">AI + Teacher Decisions</a>
+          </h3>
+
+          <p>
+            Use AI as one input. You make the call.
+          </p>
+
+        </li>
+
+
+        <li class="card c-green">
+
+          <h3>
+            <a href="#resources">Resources</a>
+          </h3>
+
+          <p>
+            Evidence, examples, tools, and professional learning.
+          </p>
+
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <!--this is the mission section-->
+    <section class="band-yellow" aria-labelledby="mission-title">
+
+      <p class="read-tiles" aria-hidden="true">
+        <span>R</span>
+        <span>E</span>
+        <span>A</span>
+        <span>D</span>
+      </p>
+
+      <h2 id="mission-title" class="eyebrow">
+        Our mission
+      </h2>
+
+      <p class="mission-text">
+        We turn trusted literacy research into clear next steps for the students in front of you, while you stay in charge.
+      </p>
+
+    </section>
+
+
+    <!--this section has the literacy tip and ai decision making-->
+    <section class="tip-row">
+
+
+      <!--this is the literacy tip notebook-->
+      <article class="notebook" aria-labelledby="tip-title">
+
+        <p id="tip-title" class="tip-label">
+          Today's literacy tip
+        </p>
+
+        <h2>
+          Pre-teach key words with a picture and a gesture.
+        </h2>
+
+        <p>
+          Before a read-aloud, introduce three to five essential words with an image and a simple motion.
+        </p>
+
+        <p>
+          <a href="#resources">Find related resources</a>
+        </p>
+
+      </article>
+
+
+      <!--this explains how leo helps but the teacher still makes the decision-->
+      <aside class="ai-card" id="ai-decisions" aria-labelledby="ai-title">
+
+        <h2 id="ai-title">
+          AI + Teacher Decision-Making
+        </h2>
+
+        <ul class="check-list">
+          <li>Leo uses approved resources only, not the open web.</li>
+          <li>Every suggestion shows its source.</li>
+          <li>You check it and make the call.</li>
+        </ul>
+
+        <p>
+          <a class="button button-primary" href="#">
+            Chat with Leo
+          </a>
+        </p>
+
+      </aside>
+
+    </section>
+
+
+    <!--this section shows the different resource types-->
+    <section class="resources" id="resources" aria-labelledby="resources-title">
+
+      <h2 id="resources-title">
+        Resources
+      </h2>
+
+
+      <!--teachers can eventually filter resources using these-->
+      <ul class="type-filters" aria-label="Resource types">
+
+        <li><a href="#">Research/Evidence</a></li>
+        <li><a href="#">Strategy</a></li>
+        <li><a href="#">Classroom Example</a></li>
+        <li><a href="#">Planning Tool</a></li>
+        <li><a href="#">AI Example</a></li>
+        <li><a href="#">Professional Learning &amp; Support</a></li>
+
+      </ul>
+
+
+      <!--sample resource cards for now-->
+      <ul class="card-grid light">
+
+        <li class="card c-crimson">
+
+          <p class="type-pill">
+            Strategy
+          </p>
+
+          <h3>
+            <a href="#">Teaching vocabulary with visuals and gestures</a>
+          </h3>
+
+          <p class="source">
+            [Source]
+          </p>
+
+        </li>
+
+
+        <li class="card c-teal">
+
+          <p class="type-pill">
+            Classroom Example
+          </p>
+
+          <h3>
+            <a href="#">Interactive read-aloud planning guide</a>
+          </h3>
+
+          <p class="source">
+            [Source]
+          </p>
+
+        </li>
+
+
+        <li class="card c-purple">
+
+          <p class="type-pill">
+            Planning Tool
+          </p>
+
+          <h3>
+            <a href="#">Sentence frames for academic talk</a>
+          </h3>
+
+          <p class="source">
+            [Source]
+          </p>
+
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <!--this section explains the penn state connection-->
+    <section class="partner-strip" aria-label="Partnership">
+
+      <p class="strip-label">
+        A project of
+      </p>
+
+      <p class="strip-name">
+        Penn State Abington
+      </p>
+
+      <p class="strip-note">
+        A grant-funded research initiative supporting new teachers of young multilingual readers.
+      </p>
+
+    </section>
+
+
+  </main>
+
+
+  <!--this is the footer at the bottom of the page-->
+  <footer class="site-footer">
+
+
+    <!--literacy lion info in the footer-->
+    <div class="footer-brand">
+
+      <span class="logo-word">
+        literacy<span>lion.</span>
+      </span>
+
+      <p>
+        Strategies and tools for teachers of young multilingual readers.
+      </p>
+
+    </div>
+
+
+    <!--footer links for the main parts of the site-->
+    <nav class="footer-nav" aria-label="Footer">
+
+      <div>
+
+        <h2>Explore</h2>
+
+        <ul>
+          <li><a href="#start-here">Start Here</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#">Chat with Leo</a></li>
+        </ul>
+
+      </div>
+
+
+      <div>
+
+        <h2>Learn</h2>
+
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Terms &amp; Privacy</a></li>
+        </ul>
+
+      </div>
+
+
+      <div>
+
+        <h2>Contact</h2>
+
+        <p>
+          [Project contact email]
+        </p>
+
+      </div>
+
+    </nav>
+
+
+    <!--small credit at the bottom-->
+    <p class="footer-credit">
+      &copy; 2026 Literacy Lion &middot; Penn State Abington &middot; Built by the CMPSC 487 capstone team
+    </p>
+
+  </footer>
+
+</body>
 </html>
