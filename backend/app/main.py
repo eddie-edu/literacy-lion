@@ -1,9 +1,13 @@
-from fastapi import FastAPI
+import os
 
+from fastapi import FastAPI
+from sqlalchemy import create_engine
+from .admin import setup_admin
 from app.assistant.config import settings, validate_settings
 
 app = FastAPI(title="AI Resource Hub")
-
+engine = create_engine(os.environ["DATABASE_URL"])
+setup_admin(app, engine, os.environ["ADMIN_SESSION_SECRET"])
 
 @app.on_event("startup")
 def validate_assistant_config() -> None:
