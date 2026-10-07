@@ -2,3 +2,6 @@ fastapi
 uvicorn[standard]
 openai
 pyyaml
+sqlalchemy
+alembic
+psycopg2-binary
