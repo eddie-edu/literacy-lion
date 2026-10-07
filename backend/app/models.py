@@ -1,8 +1,8 @@
 import enum
 import uuid
 from datetime import datetime, timezone
-from sqlalchemy import Column, String, Text, Integer, ForeignKey, DateTime, Enum
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy import Column, String, Text, Integer, ForeignKey, DateTime, Enum, func
+from sqlalchemy.dialects.postgresql import UUID, ARRAY
 from sqlalchemy.orm import declarative_base, relationship
 
 Base = declarative_base()
@@ -21,6 +21,24 @@ class User(Base):
     created_at = Column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
 
     sessions = relationship("ChatSession", back_populates="user", cascade="all, delete-orphan")
+    profile = relationship("Profile", back_populates="user", uselist=False, cascade="all, delete-orphan")
+
+class GradeLevel(str, enum.Enum):
+    K = "k"
+    First = "1"
+    Second = "2"
+    Third = "3"
+
+class Profile(Base):
+    __tablename__ = "profiles"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), unique=True, nullable=False)
+    display_name = Column(String(100), nullable=False)
+    grade_levels = Column(ARRAY(String(2)), default=list, nullable=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+    user = relationship("User", back_populates="profile")
 
 
 class ChatSession(Base):
@@ -67,6 +85,7 @@ class Document(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     title = Column(String, nullable=False)
+    summary = Column(Text, nullable=True)
     publisher = Column(String, nullable=True)
     url = Column(String, nullable=True)
     source_type = Column(String, nullable=False) # 'pdf' or 'web'
