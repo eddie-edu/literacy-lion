@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Nunito:wght@400;700&display=swap');
+:root {
+  /* Color palette */
+  --primary: #1E407C;
+  --secondary: #001E44;
+
+  /*Accent*/
+  --color-keystone: #FFD100;
+  --color-pugh-blue: #96BEE6;
+
+  /*Text Colors */
+  --color-text-primary: #001E44;
+  --color-text-secondary: #4A5B6E;
+
+  /* Borders */
+  --color-border-divider: #E4DCCD;
+  --color-border-input: #857D6E;
+
+  /*Backgrounds*/
+  --background: #FBF7F1;
+  --surface: #FFFFFF;
+  --color-leo-panel: #F6F3EC;
+
+  /* Status */
+  --color-success: #1C5E3B;
+  --color-warning: #FFD100; /* TBD */
+  --color-error: #B11F33;
+
+  /* Topic Colors */
+  --topic-phonics: #BC204B;
+  --topic-vocabulary: #1E407C;
+  --topic-fluency: #FFD100;
+  --topic-comprehension: #491D70;
+  --topic-oral-language: #1F7A74;
+  --topic-writing: #2F8A5B;  
+
+  /*--- Typography----*/
+
+   --font-heading: "Fredoka", sans-serif;
+   --font-body: "Nunito", sans-serif;
+
+  /* Font Sizes */
+  --text-li: 150px;
+  --text-h1: 56px;   /* can scale to 64px */
+  --text-h2: 44px;   /* can scale to 48px */
+  --text-h3: 23px;   /* can scale to 28px */
+  --text-body: 18px;
+  --text-small: 14px;
+  
+  --text-button: 16px; /* up to 18px */
+
+  /* Font Weights */
+  --weight-bold: 700;
+  --weight-regular: 400;
+
+  @media (max-width: 1024px) {
+    font-size: 18px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+  --color-keystone: #96BEE6;
+  }
+
+}
+
+body {
+  margin: 0;
+}
+
+.nav-menu {
+  text-decoration: none;
+  padding-bottom: 4px;
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  border-bottom: 2px solid transparent;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: var(--color-keystone);
+  overflow: hidden; /* Ensures the menu doesn't overflow its container */
+  text-decoration: none; /* Removes underline from links */
+  list-style-type: none; /* Removes bullet points */
+  padding: 10px;
+  display: flex;     /* Makes the items align horizontally */
+}
+
+.nav-menu li {
+   text-decoration: none;
+   float: left;
+   list-style-type: none;
+   margin-left: 24px;
+   padding: 0;
+   box-sizing: border-box;
+    }
+
+.nav-menu a:hover {
+  color: var(--color-keystone);
+  border-bottom-color: var(--color-beaver-blue);
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: #111;
+}
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+
