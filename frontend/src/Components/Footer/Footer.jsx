@@ -6,8 +6,8 @@ function Footer(){
       <div>
         <h2>Explore</h2>
         <ul>
-          <li><a href="#start-here">Start Here</a></li>
-          <li><a href="#resources">Resources</a></li>
+          <li><a href="/#start-here">Start Here</a></li>
+          <li><a href="/resources">Resources</a></li>
           <li><a href="#">Chat with Leo</a></li>
         </ul>
       </div>

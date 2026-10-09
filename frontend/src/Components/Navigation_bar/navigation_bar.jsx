@@ -1,4 +1,7 @@
-function NavigationBar() {
+/*current is the id of the page to highlight. exists for screen readers and the highlight style*/
+function NavigationBar({ current = 'start-here' }) {
+    const page = (id) => (current === id ? 'page' : undefined);
+
     return (
         <div>
         <header className="site-header">
@@ -13,13 +16,14 @@ function NavigationBar() {
     {/*these are the main areas teachers can move through*/}
     <nav className="main-nav" aria-label="Main">
       <ul>
-        <li><a href="#start-here" aria-current="page"> Start Here</a></li>
-        <li><a href="#know-your-learners">Know Your Learners</a> </li>
-        <li><a href="#teach-literacy">Teach Literacy</a></li>
-        <li><a href="#translanguaging">Translanguaging</a></li>
-        <li><a href="#plan-differentiate">Plan &amp; Differentiate</a></li>
-        <li><a href="#ai-decisions">AI + Teacher Decisions</a></li>
-        <li><a href="#resources">Resources</a></li>
+        {/*added "/" to front of links so they also work from other pages*/}
+        <li><a href="/#start-here" aria-current={page('start-here')}> Start Here</a></li>
+        <li><a href="/#know-your-learners" aria-current={page('know-your-learners')}>Know Your Learners</a> </li>
+        <li><a href="/#teach-literacy" aria-current={page('teach-literacy')}>Teach Literacy</a></li>
+        <li><a href="/#translanguaging" aria-current={page('translanguaging')}>Translanguaging</a></li>
+        <li><a href="/#plan-differentiate" aria-current={page('plan-differentiate')}>Plan &amp; Differentiate</a></li>
+        <li><a href="/#ai-decisions" aria-current={page('ai-decisions')}>AI + Teacher Decisions</a></li>
+        <li><a href="/resources" aria-current={page('resources')}>Resources</a></li>
       </ul>
     </nav>
     
